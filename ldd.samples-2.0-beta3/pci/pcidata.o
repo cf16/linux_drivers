@@ -1,0 +1,10 @@
+ELF
+XXSHAR_EOF
+  : || $echo 'restore of' 'pci/pcidata.o' 'failed'
+# ============= pci/pciregions.o ==============
+  $echo 'x -' extracting 'pci/pciregions.o' '(text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'pci/pciregions.o' &&
+ELF
+ƒ}´
+XXXXXXXXXXX
+
