@@ -1,3 +1,14 @@
+# kbuild part of Makefile
+obj-m := short.o
+KDIR := /lib/modules/`uname -r`/build
+PWD := $(shell pwd)
+
+default:
+	$(MAKE) -C $(KDIR) M=$$PWD modules
+
+
+
+
 # Comment/uncomment the following line to enable/disable debugging
 #DEBUG = y
 
@@ -5,24 +16,24 @@
 # generic material, independent of this specific directory, into
 # ../Rules.make. Read that file for details
 
-TOPDIR  := $(shell cd ..; pwd)
-include $(TOPDIR)/Rules.make
+#TOPDIR  := $(shell cd ..; pwd)
+#include $(TOPDIR)/Rules.make
 
-ifeq ($(DEBUG),y)
-  DEBFLAGS = -O -g -DSHORT_DEBUG
-else
-  DEBFLAGS = -O2
-endif
+#ifeq ($(DEBUG),y)
+#  DEBFLAGS = -O -g -DSHORT_DEBUG
+#else
+#  DEBFLAGS = -O2
+#endif
 
-CFLAGS += $(DEBFLAGS) -I..
+#CFLAGS += $(DEBFLAGS) -I..
 
-OBJS = short.o
+#OBJS = short.o
 
-all: $(OBJS)
+#all: $(OBJS)
 
-install:
-	install -d $(INSTALLDIR)
-	install -c short.o $(INSTALLDIR)
+#install:
+#	install -d $(INSTALLDIR)
+#	install -c short.o $(INSTALLDIR)
 
-clean:
-	rm -f *.o *~ core
+#clean:
+#	rm -f *.o *~ core

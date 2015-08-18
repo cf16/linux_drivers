@@ -1,15 +1,11 @@
-ifneq ($KERNELRELEASE),)
 # kbuild part of Makefile
-obj-m	:= modulename.o
-
-else
-# normal Makefile
-	KDIR ?= /lib/modules/`uname -r`/build
+obj-m := short.o
+KDIR := /lib/modules/`uname -r`/build
+PWD := $(shell pwd)
 
 default:
-$(MAKE) -C $(KDIR) M=$$PWD
+	$(MAKE) -C $(KDIR) M=$$PWD modules
 
-endif
 
 
 
